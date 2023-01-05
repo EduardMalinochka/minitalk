@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:30:51 by elukutin          #+#    #+#             */
-/*   Updated: 2022/12/11 16:17:45 by elukutin         ###   ########.fr       */
+/*   Updated: 2022/12/18 11:58:37 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ void	handler(int signal, siginfo_t *info, void *s)
 	(void)s;
 	if (!deg)
 		deg = 8;
-	if (!c)
-		c = 0;
 	if (deg != 0)
 	{
 		if (signal == SIGUSR2)

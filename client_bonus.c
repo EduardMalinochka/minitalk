@@ -6,7 +6,7 @@
 /*   By: elukutin <elukutin@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 19:30:44 by elukutin          #+#    #+#             */
-/*   Updated: 2022/12/11 16:18:08 by elukutin         ###   ########.fr       */
+/*   Updated: 2022/12/18 12:01:00 by elukutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	g_receiver = 1;
 
 void	received(int signal)
 {
-	if (signal == SIGUSR1 && g_receiver == 1)
+	if (g_receiver == 1 && signal == SIGUSR1)
 	{
 		ft_putstr_fd("Message was received by the server", 1);
 		g_receiver = 0;
@@ -34,6 +34,7 @@ void	bit_print(unsigned char c, int pid)
 		kill(pid, SIGUSR2);
 	if (c == 0)
 		kill(pid, SIGUSR1);
+	signal(SIGUSR1, received);
 	usleep(100);
 }
 
